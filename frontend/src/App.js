@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import GestionPatientsService from './services/GestionPatientsService';
 import Login from './components/Login';
@@ -16,8 +15,8 @@ const MENUS = {
   PATIENT: [['dashboard', 'Tableau de bord'], ['mesures', 'Mes mesures'], ['traitements', 'Mes traitements'],
     ['consultations', 'Consultations'], ['notifications', 'Notifications']],
   MEDECIN: [['dashboard', 'Tableau de bord'], ['patients', 'Patients'], ['traitements', 'Traitements'],
-    ['consultations', 'Consultations'], ['utilisateurs', 'Utilisateurs et rôles'], ['notifications', 'Notifications']],
-  ADMIN: [['dashboard', 'Statistiques']]
+    ['consultations', 'Consultations'], ['notifications', 'Notifications']],
+  ADMIN: [['dashboard', 'Statistiques'], ['utilisateurs', 'Utilisateurs et rôles']]
 };
 
 function App() {
@@ -104,7 +103,7 @@ function App() {
         {onglet === 'traitements' && <ListeTraitements gestion={gestion} utilisateur={utilisateur} rafraichir={rafraichir} />}
         {onglet === 'consultations' && <ListeConsultations gestion={gestion} utilisateur={utilisateur} rafraichir={rafraichir} />}
         {onglet === 'notifications' && <Notifications gestion={gestion} utilisateur={utilisateur} rafraichir={rafraichir} />}
-        {onglet === 'utilisateurs' && utilisateur.role === 'MEDECIN' && <GestionUtilisateurs gestion={gestion} utilisateur={utilisateur} rafraichir={rafraichir} />}
+        {onglet === 'utilisateurs' && <GestionUtilisateurs gestion={gestion} utilisateur={utilisateur} rafraichir={rafraichir} />}
       </div>
     </div>
   );
